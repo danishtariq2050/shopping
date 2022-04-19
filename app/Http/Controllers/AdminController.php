@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function home(){
+        return view('admin.admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.product.index');
+    }
+
+    public function indexdiscount()
+    {
+        return view('admin.discount.index');
     }
 
     /**
@@ -24,7 +33,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -46,7 +55,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.product.show');
     }
 
     /**
@@ -57,7 +66,7 @@ class AdminController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.product.edit');
     }
 
     /**
