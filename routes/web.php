@@ -17,3 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Admin Routes
+
+// Admin Home Page
+Route::get('/admin/home', 'AdminController@home');
+
+// Admin Product
+Route::get('/admin/product', 'AdminController@index');
+Route::get('/admin/product/create', 'AdminController@create');
+Route::post('/admin/product', 'AdminController@store');
+
+// Admin Discount
+Route::get('/admin/discount', 'AdminController@indexdiscount');
