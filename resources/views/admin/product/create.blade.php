@@ -31,7 +31,7 @@
   </div>
   <div class="form-group mt-5">
     <label for="exampleFormControlTextarea1">Discount Percentage</label>
-    <input type="text" name='discountpercentage' class="form-control" id="exampleFormControlInput4" placeholder="Discount Percentage">
+    <input type="text" name='discountpercentage' class="form-control" id="exampleFormControlInput5" placeholder="Discount Percentage">
   </div>
 
   <div class="form-group mt-5">
