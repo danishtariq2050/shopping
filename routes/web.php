@@ -24,9 +24,9 @@ Route::get('/', function () {
 Route::get('/admin/home', 'AdminController@home');
 
 // Admin Product
-Route::get('/admin/product', 'AdminController@index');
+Route::get('/admin/product', 'AdminController@index')->name('product.index');
 Route::get('/admin/product/create', 'AdminController@create');
-Route::post('/admin/product', 'AdminController@store');
+Route::post('/admin/product', 'AdminController@store')->name('product.save');
 Route::post('/admin/category', 'CategoryController@index');
 Route::get('/admin/category/create', 'CategoryController@create');
 Route::post('/admin/category', 'CategoryController@store');
