@@ -44,7 +44,17 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        // $product->discountprice = $request->name;
+        // $product->discountpercentage = $request->name;
+        $product->image = 'image';
+        $product->save();
+
+        return redirect()->route('product.index');
+
     }
 
     /**
