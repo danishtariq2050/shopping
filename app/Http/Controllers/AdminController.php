@@ -11,6 +11,10 @@ class AdminController extends Controller
         return view('admin.admin');
     }
 
+    public function manageproduct(){
+        return view('admin.product.master');
+    }
+
     /**
      * Display a listing of the resource.
      *
