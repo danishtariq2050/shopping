@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        $categories = Category::all();
+        return view('admin.category.index', compact('categories'));
+    }
+
+    public function managecategory(){
+        return view('admin.category.master');
     }
 
     /**
@@ -34,7 +41,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->name = $request->name;
+        $category->description = $request->description;
+       
+        $category->save();
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -45,7 +58,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.category.index');
     }
 
     /**
