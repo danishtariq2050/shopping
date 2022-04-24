@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
 
 
@@ -24,12 +24,14 @@ Route::get('/', function () {
 Route::get('/admin/home', 'AdminController@home');
 
 // Admin Product
-Route::get('/admin/product', 'AdminController@index')->name('product.index');
+Route::get('/admin/product/index', 'AdminController@index')->name('product.index');
 Route::get('/admin/product/create', 'AdminController@create');
 Route::post('/admin/product', 'AdminController@store')->name('product.save');
-Route::post('/admin/category', 'CategoryController@index');
+Route::get('/admin/product/manage', 'AdminController@manageproduct');
+Route::get('/admin/category/index', 'CategoryController@index')->name('category.index');
 Route::get('/admin/category/create', 'CategoryController@create');
 Route::post('/admin/category', 'CategoryController@store');
+Route::get('/admin/category/manage', 'CategoryController@managecategory');
 
 
 // Admin Discount
