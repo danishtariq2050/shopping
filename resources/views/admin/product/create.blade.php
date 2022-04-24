@@ -1,16 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Categories</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('master')
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-  <form class='container mt-5' action="{{ route('product.save') }}" method='POST' enctype='mutipart/form-data'>
+@section('content')
+  <form class='container ' action="{{ url('/admin/product') }}" method='POST' enctype='mutipart/form-data'>
     @csrf
 
   <div class="form-group">
@@ -43,3 +34,5 @@
 <button type="submit" class=" mt-5 btn btn-primary btn-lg btn-block">Add Product</button>
 </div>
 </form>
+
+@endsection
