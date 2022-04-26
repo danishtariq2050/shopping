@@ -4,6 +4,9 @@
     <body>
         <div class="container">
             <h1 class="text-center mt-3 mb-5">Products</h1>
+            <div>Products Count: <span class="badge badge-danger">{{$allProductsCount}}</span></div>
+            <div>Non Discounted Products Count: {{$allNormalProductsCount}}</div>
+            <div>Discounted Products Count: {{$allDiscountProductsCount}}</div>
 
             <table class="table table-hover table-dark">
                 <thead>

@@ -22,13 +22,25 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('admin.product.index', compact('products'));
+        $product = Product::min('price');
+        dump($product);
+        // $products = Product::all();
+        // $products = Product::whereNull('discountprice')->get();
+        $products = Product::orderBy('description', 'desc')->get();
+        $allProductsCount = Product::count();
+        $allNormalProductsCount = Product::whereNull('discountprice')->count();
+        $allDiscountProductsCount = Product::whereNotNull('discountprice')->count();
+        $productsAbc = Product::where('discountprice', '>', '6')->get();
+        return view('admin.product.index', compact('products', 'productsAbc', 'allProductsCount', 'allNormalProductsCount', 'allDiscountProductsCount'));
+        // return view('admin.product.index', ['products' => $products, 'users' => $products]);
     }
 
     public function indexdiscount()
     {
-        return view('admin.discount.index');
+        // $products = Product::whereNotNull('discountprice')->get();
+        $products = Product::findOrFail(4);
+        dump($products);
+        // return view('admin.discount.index', compact('products'));
     }
 
     /**
@@ -70,6 +82,22 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
+        // keys in db: primary, unique, foreign
+        // these keys will place on table columns
+        // primary: uniqueness means no repetition and not null and place on only one column in a table
+        // unique: uniqueness means no repetition and max one null and place on multiple columns in a table
+        // foreign: relationship between 2 tables... table 2 foreign key column attached with table 1 primary key
+            // data flow in foreign: one to one, one to many, many to one, many to many
+
+
+        // all products
+        // Product::all();
+
+        // where
+        // Product::where('id', 1)->last();
+
+        // find
+        // Product::find(1);
         return view('admin.product.show');
     }
 
