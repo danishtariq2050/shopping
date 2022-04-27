@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-  <form class='container ' action="{{ route('product.store') }}" method='POST'>
+  <form class='container ' action="{{ route('products.store') }}" method='POST'>
     @csrf
 
   <div class="form-group">

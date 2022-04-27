@@ -22,8 +22,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="{{route('admin.home')}}">Admin Panel <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="{{route('product.create')}}">Create New</a>
-                    <a class="nav-item nav-link" href="{{route('product.index')}}">All Products</a>
+                    <a class="nav-item nav-link" href="{{route('products.create')}}">Create New</a>
+                    <a class="nav-item nav-link" href="{{route('products.index')}}">All Products</a>
                     </div>
                 </div>
             </nav>
