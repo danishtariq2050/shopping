@@ -48,28 +48,36 @@ class ProductController extends Controller
         $product->image = 'image';
         $product->save();
 
-        return redirect()->route('product.index');
-
+        return redirect()->route('products.index');
     }
 
     public function show(Product $product)
     {
-        return view('admin.product.show');
+        return view('admin.product.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
-        return view('admin.product.edit');
+        return view('admin.product.edit', compact('product'));
     }
 
     public function update(Request $request, Product $product)
     {
-        //
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->discountprice = $request->discountprice;
+        $product->discountpercentage = $request->discountpercentage;
+        // $product->image = 'image';
+        $product->update();
+
+        return redirect()->route('products.index');
     }
 
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }
 
