@@ -20,19 +20,34 @@ Route::get('/', function () {
 
 // Admin Routes
 
-// Admin Home Page
-Route::get('/admin/home', 'ProductController@home');
+Route::prefix('/admin')->group(function () {
+    // Admin Home Page
+    Route::get('/home', 'ProductController@home')->name('admin.home');
 
-// Admin Product
-Route::get('/admin/product/index', 'ProductController@index')->name('product.index');
-Route::get('/admin/product/create', 'ProductController@create');
-Route::post('/admin/product', 'ProductController@store')->name('product.save');
-Route::get('/admin/product/manage', 'ProductController@manageproduct');
-Route::get('/admin/category/index', 'CategoryController@index')->name('category.index');
-Route::get('/admin/category/create', 'CategoryController@create');
-Route::post('/admin/category', 'CategoryController@store');
-Route::get('/admin/category/manage', 'CategoryController@managecategory');
+    // Admin Product
+    Route::resource('products', 'ProductController');
+
+    // Route::get('/products', 'ProductController@index')->name('product.index');
+    // Route::get('/products/create', 'ProductController@create')->name('product.create');
+    // Route::post('/products', 'ProductController@store')->name('product.store');
+    // Route::get('/products/{product}', 'ProductController@show')->name('product.show');
+    // Route::get('/products/{product}/edit', 'ProductController@edit')->name('product.edit');
+    // Route::patch('/products/{product}', 'ProductController@update')->name('product.update');
+    // Route::delete('/products/{product}', 'ProductController@destroy')->name('product.destroy');
 
 
-// Admin Discount
-Route::get('/admin/discount', 'ProductController@indexdiscount');
+    Route::get('/product/manage', 'ProductController@manageproduct');
+    Route::get('/category/index', 'CategoryController@index')->name('category.index');
+    Route::get('/category/create', 'CategoryController@create');
+    Route::post('/category', 'CategoryController@store');
+    Route::get('/category/manage', 'CategoryController@managecategory');
+
+
+    // Admin Discount
+    Route::get('/discount', 'ProductController@indexdiscount');
+
+});
+
+
+
+
