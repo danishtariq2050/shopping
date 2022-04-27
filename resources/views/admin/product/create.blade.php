@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-  <form class='container ' action="{{ url('/admin/product') }}" method='POST' enctype='mutipart/form-data'>
+  <form class='container ' action="{{ route('product.store') }}" method='POST'>
     @csrf
 
   <div class="form-group">

@@ -9,11 +9,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   </head>
   <body>
 
- 
+
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/">Online Shopping</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,9 @@
                     </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="/admin/home">Admin Panel <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/admin/product/create">Create New</a>
-                    <a class="nav-item nav-link" href="/admin/product/index">All Products</a>
+                    <a class="nav-item nav-link active" href="{{route('admin.home')}}">Admin Panel <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{route('product.create')}}">Create New</a>
+                    <a class="nav-item nav-link" href="{{route('product.index')}}">All Products</a>
                     </div>
                 </div>
             </nav>
