@@ -30,19 +30,23 @@
                             <td>{{$p->price}}</td>
                             <td>{{$p->created_at}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">
+                                <a href="{{ route('products.show', ['product' => $p->id]) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-eye"></i>
-                                </button>
+                                </a>
                             </td>
                             <td>
-                                <button class="btn btn-warning btn-sm">
+                                <a href="{{ route('products.edit', ['product' => $p->id]) }}" class="btn btn-warning btn-sm">
                                     <i class="fa fa-edit"></i>
-                                </button>
+                                </a>
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm">
-                                    <i class="fa fa-remove"></i>
-                                </button>
+                                <form action="{{ route('products.destroy', ['product' => $p->id]) }}" method='POST'>
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
