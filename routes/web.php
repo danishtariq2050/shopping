@@ -21,13 +21,13 @@ Route::get('/', function () {
 // Admin Routes
 
 // Admin Home Page
-Route::get('/admin/home', 'AdminController@home');
+Route::get('/admin/home', 'ProductController@home');
 
 // Admin Product
-Route::get('/admin/product/index', 'AdminController@index')->name('product.index');
-Route::get('/admin/product/create', 'AdminController@create');
-Route::post('/admin/product', 'AdminController@store')->name('product.save');
-Route::get('/admin/product/manage', 'AdminController@manageproduct');
+Route::get('/admin/product/index', 'ProductController@index')->name('product.index');
+Route::get('/admin/product/create', 'ProductController@create');
+Route::post('/admin/product', 'ProductController@store')->name('product.save');
+Route::get('/admin/product/manage', 'ProductController@manageproduct');
 Route::get('/admin/category/index', 'CategoryController@index')->name('category.index');
 Route::get('/admin/category/create', 'CategoryController@create');
 Route::post('/admin/category', 'CategoryController@store');
@@ -35,4 +35,4 @@ Route::get('/admin/category/manage', 'CategoryController@managecategory');
 
 
 // Admin Discount
-Route::get('/admin/discount', 'AdminController@indexdiscount');
+Route::get('/admin/discount', 'ProductController@indexdiscount');
