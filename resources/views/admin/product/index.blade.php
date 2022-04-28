@@ -8,6 +8,8 @@
             <div>Non Discounted Products Count: {{$allNormalProductsCount}}</div>
             <div>Discounted Products Count: {{$allDiscountProductsCount}}</div>
 
+            @include('partial.notifications')
+
             <table class="table table-hover table-dark">
                 <thead>
                     <tr>
