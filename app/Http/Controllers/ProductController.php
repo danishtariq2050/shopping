@@ -34,7 +34,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $product = new Product;
+        return view('admin.product.create', compact('product'));
     }
 
     public function store(Request $request)
