@@ -1,3 +1,5 @@
+@include('partial.notifications')
+
 @csrf
 <div class="form-group">
     <label>Product Name</label>

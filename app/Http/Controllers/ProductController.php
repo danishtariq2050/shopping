@@ -22,6 +22,13 @@ class ProductController extends Controller
         $allDiscountProductsCount = Product::whereNotNull('discountprice')->count();
 
         $products = Product::all();
+
+        // if($allProductsCount == 0){
+        if($products->isEmpty()){
+            session()->flash('delete', 'No Products Found! Create A New One!!!');
+            return redirect()->route('products.create');
+        }
+
         return view('admin.product.index', compact('products', 'allProductsCount', 'allNormalProductsCount', 'allDiscountProductsCount'));
     }
 
