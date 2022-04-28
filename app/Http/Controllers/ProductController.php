@@ -36,6 +36,10 @@ class ProductController extends Controller
     {
 
         $products = Product::whereNotNull('discountprice')->get();
+        if($products->isEmpty()){
+            session()->flash('delete', 'No Discounted Products Found! Create A New One!!!');
+            return redirect()->route('products.create');
+        }
         return view('admin.discount.index', compact('products'));
     }
 
@@ -55,7 +59,7 @@ class ProductController extends Controller
         // $product->discountpercentage = $request->name;
         $product->image = 'image';
         $product->save();
-
+        session()->flash('save', 'Product Saved!!!');
         return redirect()->route('products.index');
     }
 
@@ -79,12 +83,14 @@ class ProductController extends Controller
         // $product->image = 'image';
         $product->update();
 
+        session()->flash('update', 'Product Updated!!!');
         return redirect()->route('products.index');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
+        session()->flash('delete', 'Product Deleted!!!');
         return redirect()->route('products.index');
     }
 }
