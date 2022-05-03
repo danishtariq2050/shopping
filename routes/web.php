@@ -37,9 +37,12 @@ Route::prefix('/admin')->group(function () {
 
 
     Route::get('/product/manage', 'ProductController@manageproduct');
-    Route::get('/category/index', 'CategoryController@index')->name('category.index');
-    Route::get('/category/create', 'CategoryController@create');
-    Route::post('/category', 'CategoryController@store');
+
+    Route::resource('categories', 'CategoryController');
+
+    // Route::get('/category/index', 'CategoryController@index')->name('category.index');
+    // Route::get('/category/create', 'CategoryController@create');
+    // Route::post('/category', 'CategoryController@store');
     Route::get('/category/manage', 'CategoryController@managecategory');
 
 
@@ -47,7 +50,3 @@ Route::prefix('/admin')->group(function () {
     Route::get('/discount', 'ProductController@indexdiscount');
 
 });
-
-
-
-
