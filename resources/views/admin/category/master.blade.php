@@ -21,9 +21,9 @@
                     </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="/admin/home">Admin Panel <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/admin/category/create">Create New Category</a>
-                    <a class="nav-item nav-link" href="/admin/category/index">All Categories</a>
+                    <a class="nav-item nav-link active" href="{{route('admin.home')}}">Admin Panel <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="{{route('categories.create')}}">Create New Category</a>
+                    <a class="nav-item nav-link" href="{{route('categories.index')}}">All Categories</a>
                     </div>
                 </div>
             </nav>
