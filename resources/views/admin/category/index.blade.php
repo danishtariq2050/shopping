@@ -2,8 +2,11 @@
 
 @section('content')
     <body>
-        <div class="container">
+    <div class="container">
             <h1 class="text-center mt-3 mb-5">Categories</h1>
+            <div>Categories Count: <span class="badge badge-danger">{{$allCategoriesCount}}</span></div>
+
+            @include('partial.notifications')
 
             <table class="table table-hover table-dark">
                 <thead>
@@ -23,19 +26,23 @@
                             <td>{{$c->description}}</td>
                             <td>{{$c->created_at}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">
+                                <a href="{{ route('categories.show', ['category' => $c->id]) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-eye"></i>
-                                </button>
+                                </a>
                             </td>
                             <td>
-                                <button class="btn btn-warning btn-sm">
+                                <a href="{{ route('categories.edit', ['category' => $c->id]) }}" class="btn btn-warning btn-sm">
                                     <i class="fa fa-edit"></i>
-                                </button>
+                                </a>
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm">
-                                    <i class="fa fa-remove"></i>
-                                </button>
+                                <form action="{{ route('categories.destroy', ['category' => $c->id]) }}" method='POST'>
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
