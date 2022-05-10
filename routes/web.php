@@ -47,6 +47,6 @@ Route::prefix('/admin')->group(function () {
 
 
     // Admin Discount
-    Route::get('/discount', 'ProductController@indexdiscount');
+    Route::get('/discount', 'ProductController@indexdiscount')->name('products.discount');
 
 });
