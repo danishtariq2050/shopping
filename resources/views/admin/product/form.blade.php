@@ -6,6 +6,15 @@
     <input type="text" name='name' class="form-control" placeholder="Product Name" value="{{$product->name}}">
 </div>
 
+<div class="form-group">
+    <label>Category</label>
+    <select name="category_id" class="form-control">
+        @foreach($categories as $c)
+            <option value="{{$c->id}}">{{$c->name}}</option>
+        @endforeach
+    </select>
+</div>
+
 <div class="form-group mt-5">
     <label>Description</label>
     <textarea class="form-control" name='description' rows="5" placeholder="Description">{{ $product->description }}</textarea>

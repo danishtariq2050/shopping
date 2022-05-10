@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -46,13 +47,21 @@ class ProductController extends Controller
     public function create()
     {
         $product = new Product;
-        return view('admin.product.create', compact('product'));
+        $categories = Category::all();
+
+        if($categories->isEmpty()){
+            session()->flash('delete', 'No Categories Found! Create A New One!!!');
+            return redirect()->route('categories.create');
+        }
+
+        return view('admin.product.create', compact('product', 'categories'));
     }
 
     public function store(Request $request)
     {
         $product = new Product;
         $product->name = $request->name;
+        $product->category_id = $request->category_id;
         $product->description = $request->description;
         $product->price = $request->price;
         // $product->discountprice = $request->name;
