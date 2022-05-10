@@ -4,12 +4,16 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
+use App\Product;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $categories = Category::all();
+        $products = Product::all();
+        return view('user.index', compact('categories', 'products'));
     }
 
     public function shop()
