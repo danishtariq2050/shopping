@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
-
+// User Routes
+Route::get('/', 'User\UserController@index')->name('user.index');
+Route::get('/shop', 'User\UserController@shop')->name('user.shop');
+Route::get('/cart', 'User\UserController@cart')->name('user.cart');
+Route::get('/contact', 'User\UserController@contact')->name('user.contact');
 
 // Admin Routes
 
