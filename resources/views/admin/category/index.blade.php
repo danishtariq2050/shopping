@@ -4,7 +4,16 @@
     <body>
     <div class="container">
             <h1 class="text-center mt-3 mb-5">Categories</h1>
+           
+            <div class='d-flex mb-5 justify-content-between'>
             <div>Categories Count: <span class="badge badge-danger">{{$allCategoriesCount}}</span></div>
+           
+            
+            <div>
+                <a href="{{route('categories.create')}}" target='_blank' class='btn btn-info'> + Add New</a>
+            </div>
+        </div>
+
 
             @include('partial.notifications')
 
