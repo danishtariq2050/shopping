@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function indexdiscount()
     {
 
-        $products = Product::whereNotNull('discountprice')->get();
+        $products = Product::whereNull('discountprice')->get();
         if($products->isEmpty()){
             session()->flash('delete', 'No Discounted Products Found! Create A New One!!!');
             return redirect()->route('products.create');
@@ -92,6 +92,12 @@ class ProductController extends Controller
         $product->delete();
         session()->flash('delete', 'Product Deleted!!!');
         return redirect()->route('products.index');
+    }
+    public function discountproductdel(Product $product)
+    {
+        $product->delete();
+        session()->flash('delete', 'Product Deleted!!!');
+        return redirect()->route('products.');
     }
 }
 
