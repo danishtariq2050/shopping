@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('discountpercentage')->nullable();
             $table->text('image');
             $table->unsignedBigInteger('category_id');
-            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
