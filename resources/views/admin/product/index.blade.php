@@ -28,6 +28,7 @@
                     <th>S/N</th>
                     <th>Image</th>
                     <th>Product Name</th>
+                    <th>Category</th>
                     <th>Description</th>
                     <th>Price</th>
                     <th>Created Date</th>
@@ -40,6 +41,7 @@
                     <td>{{$p->id}}</td>
                     <td>{{$p->image}}</td>
                     <td>{{$p->name}}</td>
+                    <td>{{$p->category->name}}</td>
                     <td>{{$p->description}}</td>
                     <td>{{$p->price}}</td>
                     <td>{{$p->created_at}}</td>

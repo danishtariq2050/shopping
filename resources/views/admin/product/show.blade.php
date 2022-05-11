@@ -10,6 +10,10 @@
                     <div class="col-4 font-weight-bold mb-2">Product Name:</div>
                     <div class="col-8">{{$product->name}}</div>
 
+
+                    <div class="col-4 font-weight-bold mb-2">Category:</div>
+                    <div class="col-8">{{$product->category->name}}</div>
+
                     <div class="col-4 font-weight-bold mb-2">Description:</div>
                     <div class="col-8">{{$product->description}}</div>
 
