@@ -10,7 +10,7 @@
     <label>Category</label>
     <select name="category_id" class="form-control">
         @foreach($categories as $c)
-            <option value="{{$c->id}}">{{$c->name}}</option>
+            <option value="{{$c->id}}" {{ $product->category_id == $c->id ? 'selected' : ''}}>{{$c->name}}</option>
         @endforeach
     </select>
 </div>
