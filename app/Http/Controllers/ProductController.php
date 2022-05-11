@@ -68,6 +68,8 @@ class ProductController extends Controller
         // $product->discountpercentage = $request->name;
         $product->image = 'image';
         $product->save();
+
+        $this->saveImage($product);
         session()->flash('save', 'Product Saved!!!');
         return redirect()->route('products.index');
     }
@@ -93,6 +95,8 @@ class ProductController extends Controller
         // $product->image = 'image';
         $product->update();
 
+        $this->saveImage($product);
+
         session()->flash('update', 'Product Updated!!!');
         return redirect()->route('products.index');
     }
@@ -108,6 +112,12 @@ class ProductController extends Controller
         $product->delete();
         session()->flash('delete', 'Product Deleted!!!');
         return redirect()->route('products.');
+    }
+
+    private function saveImage($product){
+        if(request()->has('image')){
+            $product->update(['image' => request()->image->store('products', 'public')]);
+        }
     }
 }
 

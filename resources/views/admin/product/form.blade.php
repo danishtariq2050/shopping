@@ -38,7 +38,7 @@
 
 <div class="form-group mt-5">
     <label>Upload Image</label>
-    <input type="file" name='image' class="form-control-file">
+    <input type="file" name='image' class="form-control-file" accept="image/*">
 </div>
 
 <button type="submit" class="mt-5 btn {{$btnName == 'Add' ? 'btn-primary' : 'btn-dark'}} btn-lg btn-block">{{$btnName}} Product</button>

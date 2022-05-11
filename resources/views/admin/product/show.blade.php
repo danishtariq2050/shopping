@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-4">
-                <img src="" alt="Product Image" />
+                <img src="{{ asset('storage/'.$product->image) }}" alt="{{$product->name}}" class="img-fluid" />
             </div>
         </div>
     </div>
