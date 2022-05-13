@@ -96,9 +96,9 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="{{route('user.index')}}">Home</a></li>
-                        <li><a href="{{route('user.shop')}}">Shop</a></li>
-                        <li><a href="{{route('user.contact')}}">Contact</a></li>
+                        <li class="@yield('home_active')"><a href="{{route('user.index')}}">Home</a></li>
+                        <li class="@yield('shop_active')"><a href="{{route('user.shop')}}">Shop</a></li>
+                        <li class="@yield('contact_active')"><a href="{{route('user.contact')}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -120,7 +120,7 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<section class="hero">
+<section class="hero @yield('header_categories')">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -158,14 +158,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                    <div class="hero__text">
-                        <span>FRUIT FRESH</span>
-                        <h2>Vegetable <br />100% Organic</h2>
-                        <p>Free Pickup and Delivery Available</p>
-                        <a href="#" class="primary-btn">SHOP NOW</a>
-                    </div>
-                </div>
+
+                @yield('home_banner')
+
             </div>
         </div>
     </div>
