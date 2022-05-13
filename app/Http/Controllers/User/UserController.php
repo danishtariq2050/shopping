@@ -13,7 +13,10 @@ class UserController extends Controller
     {
         $categories = Category::all();
         $products = Product::all();
-        return view('user.index', compact('categories', 'products'));
+
+        $date = \Carbon\Carbon::now()->subDays(3);
+        $latestProducts = Product::where("created_at", '>=', $date)->orderBy('created_at', 'DESC')->get();
+        return view('user.index', compact('categories', 'products', 'latestProducts'));
     }
 
     public function shop()
