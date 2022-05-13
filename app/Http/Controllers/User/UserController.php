@@ -21,7 +21,8 @@ class UserController extends Controller
 
     public function shop()
     {
-        return view('user.shop');
+        $categories = Category::all();
+        return view('user.shop', compact('categories'));
     }
 
     public function cart()
