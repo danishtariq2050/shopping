@@ -22,7 +22,9 @@ class UserController extends Controller
     public function shop()
     {
         $categories = Category::all();
-        return view('user.shop', compact('categories'));
+        $products = Product::whereNull('discountprice')->paginate(9);
+        $discountedProducts = Product::whereNotNull('discountprice')->get();
+        return view('user.shop', compact('categories', 'products', 'discountedProducts'));
     }
 
     public function cart()
