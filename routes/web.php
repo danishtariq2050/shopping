@@ -40,6 +40,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/product/manage', 'ProductController@manageproduct');
     Route::get('/banner/manage', 'ProductController@managebanner')->name('products.banner');
 
+    
+
 
     Route::resource('categories', 'CategoryController');
 
@@ -47,6 +49,7 @@ Route::prefix('/admin')->group(function () {
     // Route::get('/category/create', 'CategoryController@create');
     // Route::post('/category', 'CategoryController@store');
     Route::get('/category/manage', 'CategoryController@managecategory');
+
 
 
     // Admin Discount
