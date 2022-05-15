@@ -23,6 +23,7 @@
                 <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/admin/category/manage">Categories</a>
                 <a class="nav-item nav-link" href= "/admin/product/manage" >Products</a>
+                <a class="nav-item nav-link" href= "/admin/banner/manage" >Banners</a>
                 <a class="nav-item nav-link" href="{{route('admin.home')}}">Admin Panel</a>
                 </div>
             </div>
