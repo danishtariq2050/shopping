@@ -15,12 +15,13 @@ class ProductController extends Controller
     public function manageproduct(){
         return view('admin.product.master');
     }
+    
 
     public function index()
     {
         $allProductsCount = Product::count();
-        $allNormalProductsCount = Product::whereNull('discountprice')->count();
-        $allDiscountProductsCount = Product::whereNotNull('discountprice')->count();
+        $allNormalProductsCount = Product::whereNull('discountprice')->whereNull('discountpercentage')->count();
+        $allDiscountProductsCount = Product::whereNotNull('discountprice')->orWhereNotNull('discountpercentage')->count();
 
         $products = Product::all();
 
@@ -35,13 +36,17 @@ class ProductController extends Controller
 
     public function indexdiscount()
     {
+        $allProductsCount = Product::count();
+        $allNormalProductsCount = Product::whereNull('discountprice')->whereNull('discountpercentage')->count();
+        $allDiscountProductsCount = Product::whereNotNull('discountprice')->orWhereNotNull('discountpercentage')->count();
 
-        $products = Product::whereNull('discountprice')->get();
+
+        $products = Product::whereNotNull('discountprice')->orWhereNotNull('discountpercentage')->get();
         if($products->isEmpty()){
             session()->flash('delete', 'No Discounted Products Found! Create A New One!!!');
             return redirect()->route('products.create');
         }
-        return view('admin.discount.index', compact('products'));
+        return view('admin.discount.index', compact('products', 'allProductsCount', 'allNormalProductsCount', 'allDiscountProductsCount'));
     }
 
     public function create()
@@ -55,6 +60,9 @@ class ProductController extends Controller
         }
 
         return view('admin.product.create', compact('product', 'categories'));
+    }
+    public function managebanner(){
+        echo'banner';
     }
 
     public function store(Request $request)
@@ -84,7 +92,12 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('admin.product.edit', compact('product', 'categories'));
     }
+    public function percentage(Product $product)
+    {
+        return view('admin.product.percentage', compact('product'));
+    }
 
+  
     public function update(Request $request, Product $product)
     {
         $product->name = $request->name;
@@ -101,6 +114,25 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
+    public function addpercentage(Request $request, Product $product)
+    {
+        $product->name = $request->name;
+        // $product->description = $request->description;
+        // $product->discountprice = $request->discountprice;
+        $product->discountpercentage = $request->discountpercentage;
+
+        // $product->price = $request->price;
+        $product->discountprice = $product->price * (1 - $product->discountpercentage / 100);
+
+
+        // $product->discountprice = $request->($product->discountprice-(($product->discountpercentage / 100) * $product->discountpercentage));
+
+        // $product->image = 'image';
+        $product->update();
+
+        session()->flash('update', 'Discount Added!!!');
+        return redirect()->route('products.index');
+    }
     public function destroy(Product $product)
     {
         $product->delete();
