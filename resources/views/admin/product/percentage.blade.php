@@ -20,6 +20,6 @@
         <input type="text" name='discountpercentage' class="form-control" placeholder="Discount Percentage"
             value="{{$product->discountpercentage}}">
     </div>
-    <button type="submit" class="mt-5 btn btn-lg btn-block">Add Discount</button>
+    <button type="submit" class="mt-5 btn-primary btn-lg btn-block">Add Discount</button>
 </form>
 @endsection
