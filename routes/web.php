@@ -38,6 +38,10 @@ Route::prefix('/admin')->group(function () {
 
 
     Route::get('/product/manage', 'ProductController@manageproduct');
+    Route::get('/banner/manage', 'ProductController@managebanner')->name('products.banner');
+
+    
+
 
     Route::resource('categories', 'CategoryController');
 
@@ -47,7 +51,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/category/manage', 'CategoryController@managecategory');
 
 
+
     // Admin Discount
     Route::get('/discount', 'ProductController@indexdiscount')->name('products.discount');
+    Route::get('/product/add_discount_percentage/{product}', 'ProductController@percentage')->name('products.percentage');
+    Route::patch('/add_discount/{product}', 'ProductController@addpercentage')->name('products.addpercentage');
 
 });

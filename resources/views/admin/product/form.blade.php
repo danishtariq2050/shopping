@@ -26,7 +26,7 @@
 </div>
 
 
-<div class="form-group mt-5">
+<!-- <div class="form-group mt-5">
     <label>Discount Price</label>
     <input type="number" name='discountprice' class="form-control" placeholder="Discount Price" value="{{$product->discountprice}}">
 </div>
@@ -34,7 +34,7 @@
 <div class="form-group mt-5">
     <label>Discount Percentage</label>
     <input type="text" name='discountpercentage' class="form-control" placeholder="Discount Percentage" value="{{$product->discountpercentage}}">
-</div>
+</div> -->
 
 <div class="form-group mt-5">
     <label>Upload Image</label>

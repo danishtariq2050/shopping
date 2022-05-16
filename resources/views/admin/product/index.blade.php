@@ -30,8 +30,9 @@
                     <th>Product Name</th>
                     <th>Category</th>
                     <th>Description</th>
-                    <th>Price</th>
-                    <th>Created Date</th>
+                    <th>Actual Price</th>
+                    <th>Discounted Price</th>
+                    <!-- <th>Created Date</th> -->
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
@@ -44,7 +45,8 @@
                     <td>{{$p->category->name}}</td>
                     <td>{{$p->description}}</td>
                     <td>{{$p->price}}</td>
-                    <td>{{$p->created_at}}</td>
+                    <td>{{$p->discountprice}}</td>
+                    <!-- <td>{{$p->created_at}}</td> -->
                     <td>
                         <a href="{{ route('products.show', ['product' => $p->id]) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-eye"></i>
@@ -63,6 +65,11 @@
                                 <i class="fa fa-remove"></i>
                             </button>
                         </form>
+                    </td>
+                    <td>
+                        <a href="{{ route('products.percentage', ['product' => $p->id]) }}" class="btn btn-light btn-sm">
+                            <i class="fa fa-tags"></i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach
