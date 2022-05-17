@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 // User Routes
 Route::get('/', 'User\UserController@index')->name('user.index');
 Route::get('/shop', 'User\UserController@shop')->name('user.shop');
-Route::get('/cart', 'User\UserController@cart')->name('user.cart');
+
+// User Cart Routes
+Route::get('/cart', 'User\CartController@cart')->name('user.cart');
+Route::get('/add-cart/{id}', 'User\CartController@addToCart')->name('product.addToCart');
+Route::get('/remove-cart/{id}', 'User\CartController@removeFromCart')->name('product.removeCart');
+Route::get('/delete/{id}', 'User\CartController@deleteFromCart')->name('product.deleteCart');
+Route::get('/clear-cart', 'User\CartController@clearCart')->name('product.clearCart');
+
 Route::get('/contact', 'User\UserController@contact')->name('user.contact');
 
 // Admin Routes
@@ -40,7 +47,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/product/manage', 'ProductController@manageproduct');
     Route::get('/banner/manage', 'ProductController@managebanner')->name('products.banner');
 
-    
+
 
 
     Route::resource('categories', 'CategoryController');
