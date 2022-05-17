@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Category;
 use App\Product;
 use App\Cart;
+use App\Wishlist;
 use Session;
 
 class UserController extends Controller
@@ -47,5 +48,24 @@ class UserController extends Controller
     public function isCart(){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         return new Cart($oldCart);
+    }
+
+    public function getWishlist(){
+        $categories = Category::all();
+        $wishlists = Wishlist::all();
+
+        $cart = $this->isCart();
+        $quantity = $cart->totalQty;
+        $price = $cart->totalPrice;
+
+        return view('user.wishlist', compact('categories', 'quantity', 'price', 'wishlists'));
+    }
+
+    public function saveWishlist($productId){
+        $w = new Wishlist;
+        $w->product_id = $productId;
+        $w->user_id = 1;
+        $w->save();
+        return back();
     }
 }

@@ -205,8 +205,12 @@
                                                 data-setbg="{{ $dp->image ? asset('storage/'.$dp->image) : asset('img/na.jpg')}}">
                                                 <div class="product__discount__percent">-{{$dp->discountpercentage}}%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                    <li>
+                                                        <form action="{{route('user.saveWishlist', ['productId' => $dp->id])}}" method='POST'>
+                                                            @csrf
+                                                            <button><i class="fa fa-heart"></i></button>
+                                                        </form>
+                                                    </li>
                                                     <li><a href="{{route('product.addToCart', ['id' => $dp->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -251,8 +255,12 @@
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="{{ $p->image ? asset('storage/'.$p->image) : asset('img/na.jpg')}}">
                                         <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li>
+                                                <form action="{{route('user.saveWishlist', ['productId' => $p->id])}}" method='POST'>
+                                                    @csrf
+                                                    <button><i class="fa fa-heart"></i></button>
+                                                </form>
+                                            </li>
                                             <li><a href="{{route('product.addToCart', ['id' => $p->id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>

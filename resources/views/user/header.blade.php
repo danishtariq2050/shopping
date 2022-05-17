@@ -6,7 +6,7 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="{{route('user.wishlist')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="{{route('user.cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$quantity}}</span></a></li>
         </ul>
         <div class="header__cart__price">item: <span>PKR. {{number_format($price)}}</span></div>
@@ -106,7 +106,7 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="{{route('user.wishlist')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
                         <li><a href="{{route('user.cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$quantity}}</span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>PKR. {{number_format($price)}}</span></div>
