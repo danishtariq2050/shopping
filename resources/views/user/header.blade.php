@@ -22,7 +22,8 @@
             </ul>
         </div>
         <div class="header__top__right__auth">
-            <a href="#"><i class="fa fa-user"></i> Login</a>
+            <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
+            <a href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
         </div>
     </div>
     <nav class="humberger__menu__nav mobile-menu">
@@ -78,9 +79,35 @@
                                 <li><a href="#">English</a></li>
                             </ul>
                         </div>
-                        <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Login</a>
-                        </div>
+                        @if(Auth::check())
+                            <div class="header__top__right__auth">
+                                <span><i class="fa fa-user"></i> {{Auth::user()->name}}</span>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <form action="{{ route('logout') }}" method='POST'>
+                                            @csrf
+                                            <button class="btn btn-light btn-sm">
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="header__top__right__auth">
+                                <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="{{route('register')}}"><i class="fa fa-user"></i> Register</a>
+                            </div>
+                        @endif
+
+
                     </div>
                 </div>
             </div>
