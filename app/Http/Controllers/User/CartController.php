@@ -8,6 +8,7 @@ use App\Product;
 use Session;
 use App\Cart;
 use App\Category;
+use App\Checkout;
 
 class CartController extends Controller
 {
@@ -60,5 +61,30 @@ class CartController extends Controller
     public function isCart(){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         return new Cart($oldCart);
+    }
+
+    public function checkout(){
+        if(!Session::has('cart')){
+            return redirect()->route('user.shop');
+        }
+
+        $cart = $this->isCart();
+        $quantity = $cart->totalQty;
+        $price = $cart->totalPrice;
+        $items = $cart->items;
+        $categories = Category::all();
+
+        return view('user.checkout', compact('categories', 'quantity', 'price', 'items'));
+    }
+
+    public function saveCheckout(Request $request){
+        $checkout = new Checkout;
+        $checkout->fname = $request->fname;
+        $checkout->lname = $request->lname;
+        $checkout->address = $request->address;
+        $checkout->country = $request->country;
+        $checkout->phone = $request->phone;
+        $checkout->email = $request->email;
+        Session::put('checkout', $checkout);
     }
 }

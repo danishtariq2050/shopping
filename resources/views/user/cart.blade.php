@@ -92,7 +92,7 @@
                             <li>Quantity <span>{{number_format($quantity)}}</span></li>
                             <li>Total <span>PKR. {{number_format($price)}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="{{route('user.checkout')}}" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

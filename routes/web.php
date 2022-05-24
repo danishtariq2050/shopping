@@ -24,6 +24,9 @@ Route::get('/remove-cart/{id}', 'User\CartController@removeFromCart')->name('pro
 Route::get('/delete/{id}', 'User\CartController@deleteFromCart')->name('product.deleteCart');
 Route::get('/clear-cart', 'User\CartController@clearCart')->name('product.clearCart');
 
+Route::get('/checkout', 'User\CartController@checkout')->name('user.checkout');
+Route::post('/saveCheckout', 'User\CartController@saveCheckout')->name('user.saveCheckout');
+
 Route::get('/wishlist', 'User\UserController@getWishlist')->name('user.wishlist');
 Route::post('/wishlist/{productId}', 'User\UserController@saveWishlist')->name('user.saveWishlist');
 Route::get('/contact', 'User\UserController@contact')->name('user.contact');
