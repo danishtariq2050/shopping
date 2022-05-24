@@ -38,7 +38,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Fist Name<span>*</span></p>
-                                        <input type="text" name="fname">
+                                        <input type="text" name="fname" value="{{Auth::user()->name}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -66,7 +66,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text" name="email">
+                                        <input type="text" name="email" value="{{Auth::user()->email}}">
                                     </div>
                                 </div>
                             </div>
