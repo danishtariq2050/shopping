@@ -27,6 +27,9 @@ Route::get('/clear-cart', 'User\CartController@clearCart')->name('product.clearC
 Route::get('/checkout', 'User\CartController@checkout')->name('user.checkout');
 Route::post('/saveCheckout', 'User\CartController@saveCheckout')->name('user.saveCheckout');
 
+Route::get('/card-details', 'User\CartController@cardDetails')->name('user.cardDetails');
+Route::post('/card-details', 'User\CartController@saveOrder')->name('user.saveOrder');
+
 Route::get('/wishlist', 'User\UserController@getWishlist')->name('user.wishlist');
 Route::post('/wishlist/{productId}', 'User\UserController@saveWishlist')->name('user.saveWishlist');
 Route::get('/contact', 'User\UserController@contact')->name('user.contact');
