@@ -70,3 +70,7 @@ Route::prefix('/admin')->group(function () {
     Route::patch('/add_discount/{product}', 'ProductController@addpercentage')->name('products.addpercentage');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
