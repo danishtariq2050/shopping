@@ -43,8 +43,8 @@
                         <button type="submit" class="site-btn">Subscribe</button>
                     </form>
                     <div class="footer__widget__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.google.com/"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.w3schools.com/bootstrap4/"><i class="fa fa-instagram"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-pinterest"></i></a>
                     </div>
