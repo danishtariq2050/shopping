@@ -126,7 +126,11 @@
                         <li class="@yield('home_active')"><a href="{{route('user.index')}}">Home</a></li>
                         <li class="@yield('shop_active')"><a href="{{route('user.shop')}}">Shop</a></li>
                         <li class="@yield('contact_active')"><a href="{{route('user.contact')}}">Contact</a></li>
-                        <li><a href="{{route('admin.home')}}">Admin Panel</a></li>
+                        @if(Auth::check())
+                            @if(Auth::user()->name == 'Admin')
+                                <li><a href="{{route('admin.home')}}">Admin Panel</a></li>
+                            @endif
+                        @endif
                     </ul>
                 </nav>
             </div>
