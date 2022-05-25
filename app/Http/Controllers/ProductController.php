@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+        // $this->middleware('guest');
+    // }
+
     public function home(){
         return view('admin.admin');
     }
@@ -15,7 +21,7 @@ class ProductController extends Controller
     public function manageproduct(){
         return view('admin.product.master');
     }
-    
+
 
     public function index()
     {
@@ -97,7 +103,7 @@ class ProductController extends Controller
         return view('admin.product.percentage', compact('product'));
     }
 
-  
+
     public function update(Request $request, Product $product)
     {
         $product->name = $request->name;

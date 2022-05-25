@@ -12,6 +12,13 @@ use Session;
 
 class UserController extends Controller
 {
+    // public function __construct()
+    // {
+        // $this->middleware('auth')->except('contact');
+        // $this->middleware('auth')->only('contact');
+        // $this->middleware('guest');
+    // }
+
     public function index()
     {
         $categories = Category::all();

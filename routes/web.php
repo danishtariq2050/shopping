@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// User Routes
-Route::get('/', 'User\UserController@index')->name('user.index');
-Route::get('/shop', 'User\UserController@shop')->name('user.shop');
+Route::middleware('auth')->group(function () {
+    // User Routes
+    Route::get('/', 'User\UserController@index')->name('user.index');
+    Route::get('/shop', 'User\UserController@shop')->name('user.shop');
+});
 
 // User Cart Routes
-Route::get('/cart', 'User\CartController@cart')->name('user.cart');
+Route::get('/cart', 'User\CartController@cart')->name('user.cart')->middleware('auth');
 Route::get('/add-cart/{id}', 'User\CartController@addToCart')->name('product.addToCart');
 Route::get('/remove-cart/{id}', 'User\CartController@removeFromCart')->name('product.removeCart');
 Route::get('/delete/{id}', 'User\CartController@deleteFromCart')->name('product.deleteCart');
@@ -36,7 +37,7 @@ Route::get('/contact', 'User\UserController@contact')->name('user.contact');
 
 // Admin Routes
 
-Route::prefix('/admin')->group(function () {
+Route::prefix('/admin')->middleware('auth')->group(function () {
     // Admin Home Page
     Route::get('/home', 'ProductController@home')->name('admin.home');
 
