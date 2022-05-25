@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\Product;
+use App\Contact;
 use App\Cart;
 use App\Wishlist;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class UserController extends Controller
 {
@@ -49,7 +52,25 @@ class UserController extends Controller
 
     public function contact()
     {
-        return view('user.contact');
+        $categories = Category::all();
+        $wishlists = Wishlist::all();
+
+        $cart = $this->isCart();
+        $quantity = $cart->totalQty;
+        $price = $cart->totalPrice;
+
+        return view('user.contact', compact('categories', 'quantity', 'price', 'wishlists'));
+    }
+
+    public function savecontact(Request $request)
+    {
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        Mail::to($request->email)->send(new ContactMail($contact));
+
+        return back();
     }
 
     public function isCart(){

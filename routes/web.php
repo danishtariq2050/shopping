@@ -34,6 +34,7 @@ Route::post('/card-details', 'User\CartController@saveOrder')->name('user.saveOr
 Route::get('/wishlist', 'User\UserController@getWishlist')->name('user.wishlist');
 Route::post('/wishlist/{productId}', 'User\UserController@saveWishlist')->name('user.saveWishlist');
 Route::get('/contact', 'User\UserController@contact')->name('user.contact');
+Route::post('/contact', 'User\UserController@savecontact')->name('user.savecontact');
 
 // Admin Routes
 
